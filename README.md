@@ -5,13 +5,13 @@
 - [Migrating to Jest](#migrating-to-jest)
   - [Table of Contents](#table-of-contents)
   - [Motivation](#motivation)
-    - [⚡️ Speed](#%e2%9a%a1%ef%b8%8f-speed)
-    - [💪 Support](#%f0%9f%92%aa-support)
+    - [Speed](#speed)
+    - [Support](#support)
       - [Community Support](#community-support)
       - [Support from Nrwl](#support-from-nrwl)
-    - [📄 Docs](#%f0%9f%93%84-docs)
-    - [✅ Simplicity](#%e2%9c%85-simplicity)
-    - [✅ Features](#%e2%9c%85-features)
+    - [Docs](#docs)
+    - [Simplicity](#simplicity)
+    - [Features](#features)
       - [Interactive CLI](#interactive-cli)
       - [Other features](#other-features)
   - [Migration: What would it require?](#migration-what-would-it-require)
@@ -20,7 +20,7 @@
 
 ## Motivation
 
-### ⚡️ Speed
+### Speed
 
 It's well established that Jest is faster than Karma:
 
@@ -45,7 +45,7 @@ During this experiment I noticed that Jest's output highlights slow test suites:
 
 This output suggests that _we_ may be the bottleneck on Jest's speed (perhaps from using `async` tests), and that it could run even faster if we optimize some of these tests.
 
-### 💪 Support
+### Support
 
 Jest has incredible support from the JavaScript community as a whole, but also from Nrwl in particular.
 
@@ -69,19 +69,19 @@ Nrwl has moved fully to Jest for all new workspaces. In fact, they [don't even i
 > - Jest has an immersive watch mode which provides near instant feedback when developing tests.
 > - Jest provides the ability to use Snapshot Testing to validate features.
 
-### 📄 Docs
+### Docs
 
 [Jasmine's documentation](https://jasmine.github.io/index.html) is just **terrible**. It's nearly impossible to find what you're looking for and when you search with Google half the time you end up on an outdated docs page.
 
 [Jest's documentation](https://jestjs.io/) is complete with explanations and examples covering the entire API.
 
-### ✅ Simplicity
+### Simplicity
 
 Jest uses [jsdom](https://github.com/jsdom/jsdom), allowing it to run entirely within your terminal.
 
 Karma opens/refreshes a new Chrome browser window every time it runs, which is distracting (for me, at least). It _does_ report results within the terminal, but the output is really difficult to read.
 
-### ✅ Features
+### Features
 
 #### Interactive CLI
 
