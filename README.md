@@ -7,16 +7,21 @@
   - [Motivation](#motivation)
     - [Speed](#speed)
     - [Support](#support)
-      - [Community Support](#community-support)
+      - [Community support](#community-support)
       - [Support from Nrwl](#support-from-nrwl)
     - [Docs](#docs)
     - [Simplicity](#simplicity)
     - [Features](#features)
       - [Interactive CLI](#interactive-cli)
       - [Other features](#other-features)
-  - [Migration: What would it require?](#migration-what-would-it-require)
-    - [Migrating a project to Jest](#migrating-a-project-to-jest)
-    - [Necessary Global Changes](#necessary-global-changes)
+  - [What would migration require?](#what-would-migration-require)
+    - [Example: Migrating a project to Jest](#example-migrating-a-project-to-jest)
+    - [Global changes](#global-changes)
+    - [Updating/revisiting our custom matchers](#updatingrevisiting-our-custom-matchers)
+  - [Pros and cons of migrating](#pros-and-cons-of-migrating)
+    - [Pros](#pros)
+    - [Cons](#cons)
+  - [Suggested migration approach](#suggested-migration-approach)
 
 ## Motivation
 
@@ -49,7 +54,7 @@ This output suggests that _we_ may be the bottleneck on Jest's speed (perhaps fr
 
 Jest has incredible support from the JavaScript community as a whole, but also from Nrwl in particular.
 
-#### Community Support
+#### Community support
 
 Jest is maintained and used by Facebook for their production apps (https://github.com/facebook/jest), so it's likely that support for Jest will remain strong. NPM trends and Github stars show Jest far ahead of Karma, but most of that is probably because Jest is often used with React:
 
@@ -111,11 +116,11 @@ With Karma if you want to narrow down on tests you need to either:
 - Snapshot testing (I doubt we'll use this very much, but it's there)
 - Code coverage tests
 
-## Migration: What would it require?
+## What would migration require?
 
 Luckily, **we don't have to do it all at once**. I created a branch and migrated two of our libraries to Jest, submitted a test PR, and unit tests passed even though most of them were using Karma and some were using Jest. This means we can migrate gradually, project by project.
 
-### Migrating a project to Jest
+### Example: Migrating a project to Jest
 
 After installing the necessary dependencies, these are the steps I took to migrate a project to Jest:
 
@@ -200,7 +205,7 @@ After installing the necessary dependencies, these are the steps I took to migra
      })
      ```
 
-### Necessary Global Changes
+### Global changes
 
 1. Install jest dependencies (all are devDependencies):
    - `@nrwl/jest` - Adds jest schematics
@@ -230,3 +235,42 @@ After installing the necessary dependencies, these are the steps I took to migra
    - From each project:
      - `karma.conf.js`
      - `test.ts`
+
+### Updating/revisiting our custom matchers
+
+We have 5 custom Jasmine matchers in our `test-helpers` library that we should port to Jest:
+
+| Matcher                     | Uses |
+| --------------------------- | ---: |
+| `expectComponent`           |    0 |
+| `expectElementFromFixture`  |   40 |
+| `expectElementsFromFixture` |    5 |
+| `expectElement`             |    0 |
+| `expectElements`            |    0 |
+
+I've learned we can actually still use them as is if we disable `ts-jest` diagnostics (I got this working with `consumer-application-feature/multi-step` even in CI), but that shouldn't be our long-term solution, especially if we're eventually going to drop Jasmine altogether.
+
+Modifying them to extend Jest matchers instead of Jasmine matchers should take an hour or less. The file's only 47 lines long.
+
+## Pros and cons of migrating
+
+### Pros
+
+- Jest is roughly 2.25x faster than Karma
+- Jest has better support than Karma, from the JS community in general and from Nrwl in particular
+- Jest's documentation is vastly superior to Karma and Jasmine's
+- Jest doesn't require Chrome to run, making it less distracting and awkward
+- Jest has an interactive watch mode that makes it really easy to narrow down on test suites
+- We can migrate gradually, project by project
+- Overall we'll end up with less devDependencies and less test configuration files
+
+### Cons
+
+- **It will take time that could be spent on other things.** It took me about 1.5 hours to migrate `consumer-application-feature/multi-step`, a library that has 240 tests in it. It's worth noting that I'm now more familiar with Jest APIs so future migrations would probably be faster.
+- There will be a period of time where we have a `karma.conf.js` and a `jest.config.js` in the root of the monorepo. This could lead to confusion.
+
+## Suggested migration approach
+
+In order to get it done as quickly is possible and minimize the time that we're using both Karma and Jest my suggestion is that I (Wilson) spend time migrating all the projects that I know aren't being actively worked on.
+
+For projects that are being actively worked on, we could have whoever is working on it migrate to Jest within a PR as part of their sprint, or we could hold off and wait until work has ceased on it, and migrate that project to Jest during a slow time.
