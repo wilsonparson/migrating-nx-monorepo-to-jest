@@ -1,10 +1,28 @@
 # Migrating to Jest
 
+## Table of Contents
+
+- [Migrating to Jest](#migrating-to-jest)
+  - [Table of Contents](#table-of-contents)
+  - [Motivation](#motivation)
+    - [⚡️ Speed](#%e2%9a%a1%ef%b8%8f-speed)
+    - [💪 Support](#%f0%9f%92%aa-support)
+      - [Community Support](#community-support)
+      - [Support from Nrwl](#support-from-nrwl)
+    - [📄 Docs](#%f0%9f%93%84-docs)
+    - [✅ Simplicity](#%e2%9c%85-simplicity)
+    - [✅ Features](#%e2%9c%85-features)
+      - [Interactive CLI](#interactive-cli)
+      - [Other features](#other-features)
+  - [Migration: What would it require?](#migration-what-would-it-require)
+    - [Migrating a project to Jest](#migrating-a-project-to-jest)
+    - [Necessary Global Changes](#necessary-global-changes)
+
 ## Motivation
 
 ### ⚡️ Speed
 
-It's well established that Jest as faster than Karma:
+It's well established that Jest is faster than Karma:
 
 - [Nx 6.3: Faster Testing with Jest](https://blog.nrwl.io/nrwl-nx-6-3-faster-testing-with-jest-20a8ddb5064)
 - [Make your Angular tests 1000% faster by switching from Karma to Jest](https://dev.to/dylanwatsonsoftware/make-your-angular-tests-1000-faster-by-switching-from-karma-to-jest-1n33)
@@ -27,7 +45,7 @@ During this experiment I noticed that Jest's output highlights slow test suites:
 
 This output suggests that _we_ may be the bottleneck on Jest's speed (perhaps from using `async` tests), and that it could run even faster if we optimize some of these tests.
 
-### 💪Support
+### 💪 Support
 
 Jest has incredible support from the JavaScript community as a whole, but also from Nrwl in particular.
 
@@ -51,7 +69,7 @@ Nrwl has moved fully to Jest for all new workspaces. In fact, they [don't even i
 > - Jest has an immersive watch mode which provides near instant feedback when developing tests.
 > - Jest provides the ability to use Snapshot Testing to validate features.
 
-### 📄Docs
+### 📄 Docs
 
 [Jasmine's documentation](https://jasmine.github.io/index.html) is just **terrible**. It's nearly impossible to find what you're looking for and when you search with Google half the time you end up on an outdated docs page.
 
