@@ -4,7 +4,7 @@
 
 - [Migrating to Jest](#migrating-to-jest)
   - [Table of Contents](#table-of-contents)
-  - [Motivation](#motivation)
+  - [Why migrate?](#why-migrate)
     - [Speed](#speed)
     - [Support](#support)
       - [Community support](#community-support)
@@ -23,7 +23,7 @@
     - [Cons](#cons)
   - [Suggested migration approach](#suggested-migration-approach)
 
-## Motivation
+## Why migrate?
 
 ### Speed
 
