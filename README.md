@@ -205,6 +205,15 @@ After installing the necessary dependencies, these are the steps I took to migra
      })
      ```
 
+   - Using [Spectator](https://github.com/ngneat/spectator) mocks, which rely on Jasmine spys internally. Luckily Spectator provides [Jest support](https://github.com/ngneat/spectator#jest-support) for its mocks, and all it requires is a change to imports:
+
+     ```typescript
+     // Replace this:
+     import { createComponentFactory } from '@ngneat/spectator'
+     // With this:
+     import { createComponentFactory } from '@ngneat/spectator/jest'
+     ```
+
 ### Global changes
 
 1. Install jest dependencies (all are devDependencies):
