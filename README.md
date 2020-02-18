@@ -58,12 +58,8 @@ Jest has incredible support from the JavaScript community as a whole, but also f
 
 Jest is maintained and used by Facebook for their production apps (https://github.com/facebook/jest), so it's likely that support for Jest will remain strong. NPM trends and Github stars show Jest far ahead of Karma, but most of that is probably because Jest is often used with React:
 
-<figure>
-  <img src="npm-karma-jest.png" alt="Line graph comparing NPM weekly downloads of Jest and Karma. Jest's average is about 5 million; Karma's is about 1.75 million.">
-  <figcaption>
-    <a href="https://www.npmtrends.com/jest-vs-karma">NPM Trends: Jest vs. Karma</a>
-  </figcaption>
-</figure>
+![Line graph comparing NPM weekly downloads of Jest and Karma. Jest's average is about 5 million; Karma's is about 1.75 million.](npm-karma-jest.png)
+[NPM Trends: Jest vs. Karma](https://www.npmtrends.com/jest-vs-karma)
 
 #### Support from Nrwl
 
@@ -84,22 +80,16 @@ Nrwl has moved fully to Jest for all new workspaces. In fact, they [don't even i
 
 Jest uses [jsdom](https://github.com/jsdom/jsdom), allowing it to run entirely within your terminal.
 
-<figure>
-  <img src="./jest-failure-output.png" alt="Example of Jest's output when a test fails. Output shows expected and received values in a Git diff-like way, and also shows a code snippet of the exact spot where the test failed.">
-  <figcaption>Example of Jest's output for a failed test. Jest shows "Expected" and "Received" with syntax resembling a Git diff, and includes a code snippet of the test showing the exact spot where the test failed.</figcaption>
-</figure>
+![Example of Jest's output when a test fails. Output shows expected and received values in a Git diff-like way, and also shows a code snippet of the exact spot where the test failed.](jest-failure-output.png)
+Example of Jest's output for a failed test. Jest shows "Expected" and "Received" with syntax resembling a Git diff, and includes a code snippet of the test showing the exact spot where the test failed.
 
 Karma opens/refreshes a new Chrome browser window every time it runs, which is distracting (for me, at least). It _does_ report results within the terminal, but the output is really difficult to read.
 
-<figure>
-  <img src="./karma-failure-output.browser.png" alt="Example of Karma's browser output for the same failed test. Karma shows a comparison of expected and received values and a call stack.">
-  <figcaption>Example of Karma's in-browser output for the same failed test. Karma shows "Expected" and "Received" in plain text along with a call stack for the test.</figcaption>
-</figure>
+![Example of Karma's browser output for the same failed test. Karma shows a comparison of expected and received values and a call stack.](karma-failure-output.browser.png)
+Example of Karma's in-browser output for the same failed test. Karma shows "Expected" and "Received" in plain text along with a call stack for the test.
 
-<figure>
-  <img src="./karma-failure-output.terminal.png" alt="Example of Karma's in-terminal output for the same failed test. Similar to the browser, Karma shows the expected and received values along with a call stack, although the formatting makes it much harder to read.">
-  <figcaption>Example of Karma's in-terminal output for the same failed test. Just like in the browser, Karma shows "Expected" and "Received" along with a call stack. The terminal output is particularly hard to read due to a lack of color and formatting.</figcaption>
-</figure>
+![Example of Karma's in-terminal output for the same failed test. Similar to the browser, Karma shows the expected and received values along with a call stack, although the formatting makes it much harder to read.](karma-failure-output.terminal.png)
+Example of Karma's in-terminal output for the same failed test. Just like in the browser, Karma shows "Expected" and "Received" along with a call stack. The terminal output is particularly hard to read due to a lack of color and formatting.
 
 ### Features
 
