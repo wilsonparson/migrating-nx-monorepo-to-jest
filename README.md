@@ -123,7 +123,7 @@ With Karma if you want to narrow down on tests you need to either:
 
 ## What would migration require?
 
-Luckily, **we don't have to do it all at once**. I created a branch and migrated two of our libraries to Jest, submitted a test PR, and unit tests passed even though most of them were using Karma and some were using Jest. This means we can migrate gradually, project by project.
+Luckily, **we don't have to do it all at once**. I created a branch ([jest-proof-of-concept](https://bitbucket.snapfinance.com/projects/FUD5/repos/snap-monorepo/compare/diff?targetBranch=refs%2Fheads%2Fmaster&sourceBranch=refs%2Fheads%2Fjest-proof-of-concept&targetRepoId=218)) and migrated two of our libraries to Jest, submitted a test PR, and unit tests passed even though most of them were using Karma and some were using Jest. This means we can migrate gradually, project by project.
 
 ### Example: Migrating a project to Jest
 
