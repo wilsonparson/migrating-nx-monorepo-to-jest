@@ -1,5 +1,14 @@
 # Jest & Karma Speed Comparisons
 
+| Runner | Scenario                     |         1 |         2 |         3 |      Avg. |
+| ------ | ---------------------------- | --------: | --------: | --------: | --------: |
+| Karma  | Local                        |   `39.84` |   `37.24` |   `37.11` |   `38.06` |
+| Karma  | Local, Docker                |   `59.99` | `1:05.34` | `1:00.48` | `1:01.94` |
+| Jest   | Local                        |   `18.67` |   `16.99` |   `16.83` |   `17.49` |
+| Jest   | Local, cleared cache         | `1:08.81` | `1:03.27` | `1:01.75` | `1:04.61` |
+| Jest   | Local, Docker                |   `20.26` |   `18.84` |   `17.86` |   `18.99` |
+| Jest   | Local, Docker, cleared cache |   `42.04` |   `45.88` |   `43.40` |   `43.77` |
+
 ## Code Base
 
 - **Project** - consumer-application-feature-multi-step
@@ -25,11 +34,21 @@ ng test consumer-application-feature-multi-step  57.21s user 5.53s system 168% c
 ng test consumer-application-feature-multi-step  57.01s user 5.37s system 168% cpu 37.106 total
 ```
 
-| Attempt |    Time |
-| ------- | ------: |
-| 1       | `39.84` |
-| 2       | `37.24` |
-| 3       | `37.11` |
+## Karma (Local, Docker)
+
+```shell
+real    0m59.982s
+user    1m14.943s
+sys     0m13.168s
+
+real    1m5.450s
+user    1m19.685s
+sys     0m14.727s
+
+real    1m0.480s
+user    1m15.836s
+sys     0m13.671s
+```
 
 ## Jest (Local)
 
@@ -40,12 +59,6 @@ ng test consumer-application-feature-multi-step  71.50s user 10.86s system 484% 
 
 ng test consumer-application-feature-multi-step  71.48s user 10.95s system 489% cpu 16.830 total
 ```
-
-| Attempt |    Time |
-| ------- | ------: |
-| 1       | `18.67` |
-| 2       | `16.99` |
-| 3       | `16.83` |
 
 ## Jest (Local, Cleared Cache)
 
@@ -65,19 +78,34 @@ ng test consumer-application-feature-multi-step  161.69s user 23.19s system 292%
 ng test consumer-application-feature-multi-step  159.51s user 22.70s system 295% cpu 1:01.75 total
 ```
 
-| Attempt |      Time |
-| ------- | --------: |
-| 1       | `1:08.81` |
-| 2       | `1:03.27` |
-| 3       | `1:01.75` |
+## Jest (Local Docker w/ cache)
 
-## Summary Results
+```
+real    0m20.264s
+user    0m47.148s
+sys     0m9.262s
 
-| Runner | Scenario                |         1 |         2 |         3 |      Avg. |
-| ------ | ----------------------- | --------: | --------: | --------: | --------: |
-| Karma  | Local                   |   `39.84` |   `37.24` |   `37.11` |   `38.06` |
-| Karma  | Local Docker            |           |           |           |           |
-| Jest   | Local                   |   `18.67` |   `16.99` |   `16.83` |   `17.49` |
-| Jest   | Local, cleared cache    | `1:08.81` | `1:03.27` | `1:01.75` | `1:04.61` |
-| Jest   | Local Docker (no cache) |           |           |           |           |
-| Jest   | Local Docker w/ cache   |           |           |           |           |
+real    0m18.838s
+user    0m48.879s
+sys     0m9.081s
+
+real    0m17.864s
+user    0m59.507s
+sys     0m11.731s
+```
+
+## Jest (Local Docker, cleared cache)
+
+```
+real    0m42.036s
+user    2m26.939s
+sys     0m39.761s
+
+real    0m45.879s
+user    2m31.435s
+sys     0m44.920s
+
+real    0m43.399s
+user    2m26.750s
+sys     0m41.127s
+```
