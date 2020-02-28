@@ -30,10 +30,10 @@
 | ------ | ---------------------------- | --------: | --------: | --------: | --------: |
 | Karma  | Local                        |           |           |           |           |
 | Karma  | Local, Docker                |           |           |           |           |
-| Jest   | Local                        |   `15.76` |   `14.43` |   `14.75` |   `14.98` |
-| Jest   | Local, cleared cache         | `1:05.33` | `1:02.56` | `1:04.53` | `1:04.14` |
-| Jest   | Local, Docker                |   `22.20` |   `21.27` |   `20.00` |   `21.16` |
-| Jest   | Local, Docker, cleared cache |   `48.88` |   `53.44` |   `52.52` |   `51.61` |
+| Jest\* | Local                        |   `15.76` |   `14.43` |   `14.75` |   `14.98` |
+| Jest\* | Local, cleared cache         | `1:05.33` | `1:02.56` | `1:04.53` | `1:04.14` |
+| Jest\* | Local, Docker                |   `22.20` |   `21.27` |   `20.00` |   `21.16` |
+| Jest\* | Local, Docker, cleared cache |   `48.88` |   `53.44` |   `52.52` |   `51.61` |
 
 ### Angular 8
 
@@ -80,53 +80,53 @@ All of the test scenarios labeled "cleared cache" mean that I cleared the cache 
 #### Jest (Local)
 
 ```shell
-ng test consumer-application-feature-multi-step  41.26s user 5.14s system 294% cpu 15.762 total
+ng test consumer-application-feature-multi-step  37.50s user 6.27s system 257% cpu 16.971 total
 
-ng test consumer-application-feature-multi-step  36.12s user 5.18s system 286% cpu 14.429 total
+ng test consumer-application-feature-multi-step  38.12s user 5.73s system 275% cpu 15.886 total
 
-ng test consumer-application-feature-multi-step  34.89s user 5.36s system 272% cpu 14.747 total
+ng test consumer-application-feature-multi-step  39.10s user 5.56s system 285% cpu 15.665 total
 ```
 
 #### Jest (Local, cleared cache)
 
 ```shell
-ng test consumer-application-feature-multi-step  92.72s user 13.12s system 162% cpu 1:05.33 total
+ng test consumer-application-feature-multi-step  92.14s user 12.52s system 171% cpu 1:01.15 total
 
-ng test consumer-application-feature-multi-step  90.97s user 12.27s system 165% cpu 1:02.56 total
+ng test consumer-application-feature-multi-step  91.65s user 12.66s system 172% cpu 1:00.40 total
 
-ng test consumer-application-feature-multi-step  103.66s user 14.89s system 183% cpu 1:04.53 total
+
 ```
 
 #### Jest (Local, Docker)
 
 ```shell
-real    0m22.196s
-user    0m35.986s
-sys     0m7.549s
+real    0m19.410s
+user    0m58.173s
+sys     0m12.431s
 
-real    0m21.271s
-user    1m29.733s
-sys     0m16.195s
+real    0m17.409s
+user    1m10.212s
+sys     0m14.005s
 
-real    0m20.002s
-user    1m6.438s
-sys     0m12.169s
+real    0m21.846s
+user    1m32.738s
+sys     0m16.146s
 ```
 
 #### Jest (Local, Docker, cleared cache)
 
 ```shell
-real    0m48.883s
-user    2m59.136s
-sys     0m39.458s
+real    0m51.924s
+user    2m50.605s
+sys     0m48.538s
 
-real    0m53.440s
-user    3m1.907s
-sys     0m50.752s
+real    0m45.426s
+user    2m32.796s
+sys     0m42.638s
 
-real    0m52.521s
-user    2m57.339s
-sys     0m58.312s
+real    0m51.678s
+user    2m47.206s
+sys     1m1.532s
 ```
 
 ### Angular 8
