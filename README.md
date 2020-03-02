@@ -38,11 +38,8 @@ I tried an experiment on a part of our own codebase: `consumer-application-featu
 
 Here are the results (seconds):
 
-| Attempt | Karma | Karma Headless | Jest  |
-| ------- | ----- | -------------- | ----- |
-| 1       | 37.06 | 33.20          | 14.34 |
-| 2       | 32.66 | 32.78          | 13.92 |
-| 3       | 32.71 | 32.63          | 14.02 |
+![Chart comparing speeds of Karma and Jest in a number of scenarios. Average local time: Karma: 29.266 seconds, Jest: 15.605 seconds. Average time on Jenkins PR server: Karma: 46.575 seconds, Jest: 44.009 seconds.](karma-jest-speed-comparison.final-results.png)
+[Results Google Sheet](https://docs.google.com/spreadsheets/d/1w4uAOYNXkTMMsOZtuAN8YPIzYwnrtvr5y2eYCvgOqr4/edit?usp=sharing)
 
 During this experiment I noticed that Jest's output highlights slow test suites:
 
